@@ -11,29 +11,75 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar( title: Text("앱임"), backgroundColor: Colors.tealAccent,),
+        appBar: AppBar(
+          leading: Icon(Icons.stacked_bar_chart_sharp, size: 30,),
+          title: Text(
+            "앱임",
+          style: TextStyle(
+            color: Colors.blueAccent,
+            fontSize: 30,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+          backgroundColor: Colors.tealAccent,
+        ),
         body: Align(
           alignment: Alignment.topCenter,
           child: Container(
             width: double.infinity,
-            height: 60,
-            margin: EdgeInsets.all(20),
-            padding: EdgeInsets.fromLTRB(0,20,0,20),
+            height: double.infinity,
+            margin: EdgeInsets.all(
+                20
+            ),
+            padding: EdgeInsets.fromLTRB(
+                0,20,0,20
+            ),
             decoration: BoxDecoration(
                 color: Colors.tealAccent,
-                border: Border.all(color:Colors.black),
-                borderRadius: BorderRadius.circular(10)
+                border: Border.all(
+                    color:Colors.black
+                ),
+                borderRadius: BorderRadius.circular(
+                    10
+                )
             ),
-            child: Center(child: Text("dddd")),
+            child: Center(
+                child: ElevatedButton(
+                    onPressed: (
+
+                        ) {
+                    },
+                    child: Text(
+                        "버튼",
+                        style: TextStyle(
+                            color: Colors.blueAccent,
+                            fontSize: 30,
+                            fontWeight: FontWeight.w900
+                        )
+                    ),
+                )
+            ),
           ),
         ),
         bottomNavigationBar: BottomAppBar(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(Icons.phone),
-              Icon(Icons.message),
-              Icon(Icons.contact_page)
+              Icon(
+                Icons.phone,
+                color: Colors.blueAccent,
+                size: 60,
+              ),
+              Icon(
+                Icons.message,
+                color: Colors.blueAccent,
+                size: 60,
+              ),
+              Icon(
+                Icons.contact_page,
+                color: Colors.blueAccent,
+                size: 60,
+              )
             ],
           ),
         ),
