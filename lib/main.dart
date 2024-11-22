@@ -12,77 +12,106 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          leading: Icon(Icons.stacked_bar_chart_sharp, size: 30,),
-          title: Text(
-            "앱임",
-          style: TextStyle(
-            color: Colors.blueAccent,
-            fontSize: 30,
-            fontWeight: FontWeight.w900,
-          ),
-        ),
-          backgroundColor: Colors.tealAccent,
-        ),
-        body: Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            margin: EdgeInsets.all(
-                20
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search_rounded,
+                size: 40,
+              ),
             ),
-            padding: EdgeInsets.fromLTRB(
-                0,20,0,20
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.density_medium,
+                size: 40,
+              ),
             ),
-            decoration: BoxDecoration(
-                color: Colors.tealAccent,
-                border: Border.all(
-                    color:Colors.black
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                  Icons.add_alert_rounded,
+                  size: 40,
+              ),
+            ),
+          ],
+          centerTitle: false,
+          title: Container(
+            padding: EdgeInsets.fromLTRB(30, 0, 20, 0),
+            child: Row(
+              children: [
+                Text(
+                  "금호동3가",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(
-                    10
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  size: 40,
                 )
-            ),
-            child: Center(
-                child: ElevatedButton(
-                    onPressed: (
-
-                        ) {
-                    },
-                    child: Text(
-                        "버튼",
-                        style: TextStyle(
-                            color: Colors.blueAccent,
-                            fontSize: 30,
-                            fontWeight: FontWeight.w900
-                        )
-                    ),
-                )
+              ]
             ),
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
+        body: Container(
+          margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+          width: double.infinity,
+          height: 300,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
-                Icons.phone,
-                color: Colors.blueAccent,
-                size: 60,
-              ),
-              Icon(
-                Icons.message,
-                color: Colors.blueAccent,
-                size: 60,
-              ),
-              Icon(
-                Icons.contact_page,
-                color: Colors.blueAccent,
-                size: 60,
+              Image.asset('bej.png'),
+              Container(
+                width: 500,
+                margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "알바구합니다 백은준",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                    Text(
+                      "하남시 미사동.끌올 10분 전",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 20
+                      ),
+                    ),
+                    Text(
+                      "210,000원",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Icon(
+                            Icons.favorite_border
+                        ),
+                        Text
+                          (
+                          "4",
+                          style: TextStyle(
+                              fontSize: 20
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               )
             ],
           ),
-        ),
+        )
       )
     );
   }
