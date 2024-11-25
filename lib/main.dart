@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+      MaterialApp(
+          home: MyApp()
+      )
+  );
 }
 
 // class Test extends StatefulWidget {
@@ -27,23 +31,41 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 1;
   var name = ["김영숙", "최명근", "피자집"];
   var likes = [0,0,0];
 
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            setState(() {
-              a++;
+            showDialog(context: context, builder: (context){
+              return Dialog(child: Container(
+                width: 300,
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Colors.tealAccent,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 20,
+                      spreadRadius: 2
+                    )
+                  ]
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(Icons.add_alert_rounded, size: 100,),
+                    Text("알림이 왔습니다.!!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),)
+                  ],
+                ),
+              ));
             });
           },
-          child: Text(a.toString()),
-          backgroundColor: Colors.teal,
         ),
         appBar: AppBar(
           title: Text("contact"),
@@ -78,8 +100,7 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }
 
