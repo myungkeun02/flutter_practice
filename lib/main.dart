@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  var a = 1;
+
   @override
   Widget build(BuildContext context) {
 
     return MaterialApp(
       home: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            a++;
+            print(a);
+          },
+          child: Text(a.toString()),
+          backgroundColor: Colors.teal,
+        ),
         appBar: AppBar(
           title: Text("contact"),
           backgroundColor: Colors.teal,
