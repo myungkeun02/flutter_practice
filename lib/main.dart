@@ -4,10 +4,31 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+// class Test extends StatefulWidget {
+//   const Test({super.key});
+//
+//   @override
+//   State<Test> createState() => _TestState();
+// }
+//
+// class _TestState extends State<Test> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }
+
+
+class MyApp extends StatefulWidget {
   MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   var a = 1;
+  var name = ["김영숙", "최명근", "피자집"];
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +37,9 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            a++;
-            print(a);
+            setState(() {
+              a++;
+            });
           },
           child: Text(a.toString()),
           backgroundColor: Colors.teal,
@@ -27,12 +49,12 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
         ),
         body: ListView.builder(
-          itemCount: 100,
+          itemCount: 3,
           itemBuilder: (c, i) {
             print(i);
             return ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text(i.toString() + " 홍길동"),
+              title: Text(name[i]),
             );
           },
         ),
