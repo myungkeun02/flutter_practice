@@ -15,13 +15,15 @@ class MyApp extends StatelessWidget {
           title: Text("contact"),
           backgroundColor: Colors.teal,
         ),
-        body: ListView(
-          children: [
-            contact(),
-            contact(),
-            contact(),
-            contact(),
-          ],
+        body: ListView.builder(
+          itemCount: 100,
+          itemBuilder: (c, i) {
+            print(i);
+            return ListTile(
+              leading: Icon(Icons.account_circle),
+              title: Text(i.toString() + " 홍길동"),
+            );
+          },
         ),
         bottomNavigationBar: BottomAppBar(
           color: Colors.teal,
@@ -36,20 +38,6 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class contact extends StatelessWidget {
-  const contact({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-        Icon(Icons.account_circle, size: 100,),
-        Text("홍길동", style: TextStyle(fontSize: 50),)
-    ]);
   }
 }
 
