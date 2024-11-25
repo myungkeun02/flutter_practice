@@ -29,6 +29,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var a = 1;
   var name = ["김영숙", "최명근", "피자집"];
+  var likes = [0,0,0];
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +54,16 @@ class _MyAppState extends State<MyApp> {
           itemBuilder: (c, i) {
             print(i);
             return ListTile(
-              leading: Icon(Icons.account_circle),
+              leading: Text(likes[i].toString()),
               title: Text(name[i]),
+              trailing: TextButton(
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.tealAccent)),
+                  onPressed: (){
+                    setState(() {
+                      likes[i]++;
+                    });
+                  },
+                  child: Text("좋아요")),
             );
           },
         ),
