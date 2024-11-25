@@ -8,20 +8,6 @@ void main() {
   );
 }
 
-// class Test extends StatefulWidget {
-//   const Test({super.key});
-//
-//   @override
-//   State<Test> createState() => _TestState();
-// }
-//
-// class _TestState extends State<Test> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
-
 
 class MyApp extends StatefulWidget {
   MyApp({super.key});
@@ -59,8 +45,37 @@ class _MyAppState extends State<MyApp> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Icon(Icons.add_alert_rounded, size: 100,),
-                    Text("알림이 왔습니다.!!", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),)
+                    Container(
+                        child: Text("Contact", style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500)
+                        )
+                    ),
+                    SizedBox(
+                      width: 200,
+                      height: 40,
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          hintText: '010-5002-3568',
+                        ),
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter some text';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
+                            child: Text("Cancel")),
+                        TextButton(onPressed: (){},
+                            child: Text("OK"))
+                      ],
+                    )
                   ],
                 ),
               ));
@@ -78,7 +93,7 @@ class _MyAppState extends State<MyApp> {
             return ListTile(
               leading: Text(likes[i].toString()),
               title: Text(name[i]),
-              trailing: TextButton(
+              trailing: ElevatedButton(
                   style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.tealAccent)),
                   onPressed: (){
                     setState(() {
@@ -103,4 +118,3 @@ class _MyAppState extends State<MyApp> {
       );
   }
 }
-
